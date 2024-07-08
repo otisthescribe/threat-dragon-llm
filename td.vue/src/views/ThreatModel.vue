@@ -54,6 +54,15 @@
             <b-col class="text-right">
                 <b-btn-group>
                     <td-form-button
+                        id="td-generate-threats-btn"
+                        :isPrimary="true"
+                        :onBtnClick="onGenerateThreats"
+                        v-b-modal.generate-threats
+                        :style="{ marginRight: '20px' }"
+                        :text="$t('forms.threatModelAll')" />
+                </b-btn-group>
+                <b-btn-group>
+                    <td-form-button
                         id="td-edit-btn"
                         :isPrimary="true"
                         :onBtnClick="onEditClick"
@@ -137,6 +146,9 @@ export default {
             this.$store.dispatch(tmActions.diagramSelected, diagram);
             const path = `${this.$route.path}/edit/${encodeURIComponent(diagram.title)}`;
             this.$router.push(path);
+        },
+        onGenerateThreats() {
+
         }
     },
     mounted() {

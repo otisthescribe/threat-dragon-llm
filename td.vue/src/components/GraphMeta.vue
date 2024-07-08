@@ -19,10 +19,24 @@
                         variant="primary"
                         size="sm"
                         class="float-right"
+                        :style="{ marginRight: '10px' }"
                     >
                         <font-awesome-icon icon="plus" class="mr-1"></font-awesome-icon>    
                         {{ $t('threats.newThreat') }}
                     </b-btn>
+
+                    <b-btn
+                        :disabled="disableNewThreat"
+                        @click="generateThreats()"
+                        v-if="!!cellRef"
+                        variant="primary"
+                        size="sm"
+                        class="float-right"
+                        :style="{ marginRight: '10px' }"
+                    > 
+                        {{ $t('forms.threatModelComponent') }}
+                    </b-btn>
+
                 </template>
                 <b-card-body>
                     <b-card-text v-if="!!cellRef">
@@ -120,6 +134,9 @@ export default {
             this.$store.dispatch(CELL_DATA_UPDATED, this.cellRef.data);
             dataChanged.updateStyleAttrs(this.cellRef);
             this.threatSelected(threat.id,'new');
+        },
+        generateThreats() {
+
         }
     },
 };

@@ -1,5 +1,11 @@
 <template>
     <b-btn-group>
+
+        <td-form-button
+            :isPrimary="true"
+            :onBtnClick="generateThreats"
+            :text="$t('forms.threatModelDiagram')" />
+
         <td-form-button
             :onBtnClick="deleteSelected"
             icon="trash"
@@ -113,6 +119,9 @@ export default {
                 this.graph.showGrid();
                 this.gridShowing = true;
             }
+        },
+        generateThreats() {
+            console.log('Generate Threats button clicked');
         }
     }
 };

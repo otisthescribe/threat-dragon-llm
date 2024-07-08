@@ -253,7 +253,11 @@ const eng = {
         saveAs: 'Save As',
         saveModel: 'Save Model',
         saveModelAs: 'Save Model As',
-        search: 'Search'
+        search: 'Search',
+        threatModelAll: "Generate threats for this threat model",
+        threatModelDiagram: "Generate threats for this diagram",
+        threatModelComponent: "Generate threats for this component",
+
     },
     threats: {
         model: {

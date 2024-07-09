@@ -6,6 +6,7 @@ import configController from "../controllers/configcontroller";
 import healthcheck from '../controllers/healthz.js';
 import homeController from '../controllers/homecontroller.js';
 import threatmodelController from '../controllers/threatmodelcontroller.js';
+import llmService from '../llm/llmService.js';
 
 /**
  * Routes that do **NOT** require authentication
@@ -47,6 +48,11 @@ const routes = (router) => {
 
     router.post('/api/threatmodel/:organisation/:repo/:branch/:model/create', threatmodelController.create);
     router.put('/api/threatmodel/:organisation/:repo/:branch/:model/update', threatmodelController.update);
+
+    // LLM THREAT GENERATOR
+    router.post('/api/threatmodel/generate/model', llmService.generateThreatModel);
+    router.post('/api/threatmodel/generate/diagram', llmService.generateThreatModel);
+    router.post('/api/threatmodel/generate/component', llmService.generateThreatModel);
 };
 
 const config = (app) => {

@@ -1,66 +1,69 @@
 <template>
-    <b-btn-group>
+    <div>
+        <b-btn-group>
+            <td-form-button
+                :isPrimary="true"
+                :onBtnClick="generateThreats"
+                :text="$t('forms.threatModelDiagram')"
+                :style="{ marginRight: '10px' }" />
+        </b-btn-group>
+        <b-btn-group>
+            <td-form-button
+                :onBtnClick="deleteSelected"
+                icon="trash"
+                :title="$t('threatmodel.buttons.delete')"
+                text="" />
 
-        <td-form-button
-            :isPrimary="true"
-            :onBtnClick="generateThreats"
-            :text="$t('forms.threatModelDiagram')" />
+            <td-form-button
+                :onBtnClick="noOp"
+                v-b-modal.shortcuts
+                icon="keyboard"
+                :title="$t('threatmodel.buttons.shortcuts')"
+                text="" />
 
-        <td-form-button
-            :onBtnClick="deleteSelected"
-            icon="trash"
-            :title="$t('threatmodel.buttons.delete')"
-            text="" />
+            <td-form-button
+                :onBtnClick="undo"
+                icon="undo"
+                :title="$t('threatmodel.buttons.undo')"
+                text="" />
 
-        <td-form-button
-            :onBtnClick="noOp"
-            v-b-modal.shortcuts
-            icon="keyboard"
-            :title="$t('threatmodel.buttons.shortcuts')"
-            text="" />
+            <td-form-button
+                :onBtnClick="redo"
+                icon="redo"
+                :title="$t('threatmodel.buttons.redo')"
+                text="" />
 
-        <td-form-button
-            :onBtnClick="undo"
-            icon="undo"
-            :title="$t('threatmodel.buttons.undo')"
-            text="" />
+            <td-form-button
+                :onBtnClick="zoomIn"
+                icon="search-plus"
+                :title="$t('threatmodel.buttons.zoomIn')"
+                text="" />
 
-        <td-form-button
-            :onBtnClick="redo"
-            icon="redo"
-            :title="$t('threatmodel.buttons.redo')"
-            text="" />
+            <td-form-button
+                :onBtnClick="zoomOut"
+                icon="search-minus"
+                :title="$t('threatmodel.buttons.zoomOut')"
+                text="" />
 
-        <td-form-button
-            :onBtnClick="zoomIn"
-            icon="search-plus"
-            :title="$t('threatmodel.buttons.zoomIn')"
-            text="" />
+            <td-form-button
+                :onBtnClick="toggleGrid"
+                icon="th"
+                :title="$t('threatmodel.buttons.toggleGrid')"
+                text="" />
 
-        <td-form-button
-            :onBtnClick="zoomOut"
-            icon="search-minus"
-            :title="$t('threatmodel.buttons.zoomOut')"
-            text="" />
+            <td-form-button
+                :onBtnClick="closeDiagram"
+                icon="times"
+                :text="$t('forms.close')" />
+                
+            <td-form-button
+                :isPrimary="true"
+                :onBtnClick="save"
+                icon="save"
+                :text="$t('forms.save')" />
 
-        <td-form-button
-            :onBtnClick="toggleGrid"
-            icon="th"
-            :title="$t('threatmodel.buttons.toggleGrid')"
-            text="" />
-
-        <td-form-button
-            :onBtnClick="closeDiagram"
-            icon="times"
-            :text="$t('forms.close')" />
-            
-        <td-form-button
-            :isPrimary="true"
-            :onBtnClick="save"
-            icon="save"
-            :text="$t('forms.save')" />
-
-    </b-btn-group>
+        </b-btn-group>    
+    </div>  
 </template>
 
 <script>

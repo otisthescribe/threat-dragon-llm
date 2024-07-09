@@ -254,9 +254,9 @@ const eng = {
         saveModel: 'Save Model',
         saveModelAs: 'Save Model As',
         search: 'Search',
-        threatModelAll: "Generate threats for this threat model",
-        threatModelDiagram: "Generate threats for this diagram",
-        threatModelComponent: "Generate threats for this component",
+        threatModelAll: "Generate threats with LLM",
+        threatModelDiagram: "Generate threats with LLM",
+        threatModelComponent: "Generate threats with LLM",
 
     },
     threats: {

@@ -92,6 +92,7 @@
 import { mapState } from 'vuex';
 
 import { createNewTypedThreat } from '@/service/threats/index.js';
+import { createNewGeneratedThreats } from '@/service/threats/genthreats.js';
 import { CELL_DATA_UPDATED, CELL_UNSELECTED } from '@/store/actions/cell.js';
 import dataChanged from '@/service/x6/graph/data-changed.js';
 import tmActions from '@/store/actions/threatmodel.js';
@@ -135,8 +136,17 @@ export default {
             dataChanged.updateStyleAttrs(this.cellRef);
             this.threatSelected(threat.id,'new');
         },
-        generateThreats() {
-
+        async generateThreats() {
+            const threats = await createNewGeneratedThreats(this.diagram.diagramType, this.cellRef.data, this.threatTop+1);
+            threats.forEach((threat) => {
+                console.debug('new threat ID: ' + threat.id);
+                this.cellRef.data.threats.push(threat);
+                this.cellRef.data.hasOpenThreats = this.cellRef.data.threats.length > 0;
+                this.$store.dispatch(tmActions.update, { threatTop: this.threatTop+1 });
+                this.$store.dispatch(tmActions.modified);
+                this.$store.dispatch(CELL_DATA_UPDATED, this.cellRef.data);
+                dataChanged.updateStyleAttrs(this.cellRef);
+            });
         }
     },
 };

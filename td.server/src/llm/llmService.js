@@ -1,17 +1,18 @@
 import OpenAI from 'openai';
 import loggerHelper from '../helpers/logger.helper.js';
 import env from '../env/Env.js';
-import { serverError } from '../controllers/errors.js';
 import responseWrapper from '../controllers/responseWrapper.js';
 
 const logger = loggerHelper.get('llm/llmService.js');
 
-const openai = new OpenAI({
-    apiKey: env.get().config.OPENAI_API_KEY,
-    baseURL: env.get().config.OPENAI_BASE_URL
-});
-
 const generateThreatModel = (req, res) => responseWrapper.sendResponseAsync(async () => {
+
+    // INITIATE OPENAI
+    const openai = new OpenAI({
+        apiKey: env.get().config.OPENAI_API_KEY,
+        baseURL: env.get().config.OPENAI_BASE_URL
+    });
+
     try {
         let system_context = "Act as an experienced Security Engineer and professional Threat Modeller."
         let user_context = `
@@ -30,12 +31,13 @@ const generateThreatModel = (req, res) => responseWrapper.sendResponseAsync(asyn
         ]
 
         List of hard requirements:
-        - DO NOT respond with anything else other than the sturcture above
-        - DO NOT add anything else or try to format the output in a different way that is described above
+        - DO NOT respond with anything else other than the structure above
+        - DO NOT add anything else or try to format the output in a different way that is described above including json formatting, respond only with a valid JSON
         - Keep in mind the existing threats if there are any. They will be described in the components under key "threats"
 
         Here is the information about the threat modelled component:
         `;
+        
         const chatCompletion = await openai.chat.completions.create({
             model: 'gpt-4o',
             messages: [

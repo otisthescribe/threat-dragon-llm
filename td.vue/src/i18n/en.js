@@ -257,7 +257,7 @@ const eng = {
         threatModelAll: "Generate threats with LLM",
         threatModelDiagram: "Generate threats with LLM",
         threatModelComponent: "Generate threats with LLM",
-
+        startSession: "Start session"
     },
     threats: {
         model: {
@@ -375,6 +375,19 @@ const eng = {
         },
         instructions: 'Great! Let\'s get you to your model.',
         continue: 'Continue to Threat Model'
+    },
+    llm: {
+        context: 'Additional context for LLM',
+        models: {
+            openai: "OpenAI",
+            gemini: "Gemini",
+            llama: "Llama"
+        },
+        provider: "LLM Provider",
+        properties: {
+            number: "Number of threats"
+        }
+
     }
 };
 

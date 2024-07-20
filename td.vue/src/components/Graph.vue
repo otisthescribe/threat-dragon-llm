@@ -24,11 +24,12 @@
                 </b-row>
             </b-col>
         </b-row>
-        <td-graph-meta @threatSelected="threatSelected" />
+        <td-graph-meta @threatSelected="threatSelected" @LLMSessionCreated="LLMSessionCreated" />
 
         <div>
             <td-keyboard-shortcuts />
             <td-threat-edit-dialog ref="threatEditDialog" />
+            <td-llm-session ref="llmSession" />
         </div>
     </div>
 </template>
@@ -43,6 +44,7 @@
 import { mapState } from 'vuex';
 
 import TdGraphButtons from '@/components/GraphButtons.vue';
+import TdLlmSession from '@/components/LlmSession.vue'
 import TdGraphMeta from '@/components/GraphMeta.vue';
 import TdKeyboardShortcuts from '@/components/KeyboardShortcuts.vue';
 import TdThreatEditDialog from '@/components/ThreatEditDialog.vue';
@@ -58,7 +60,8 @@ export default {
         TdGraphButtons,
         TdGraphMeta,
         TdKeyboardShortcuts,
-        TdThreatEditDialog
+        TdThreatEditDialog,
+        TdLlmSession
     },
     computed: mapState({
         diagram: (state) => state.threatmodel.selectedDiagram,
@@ -85,6 +88,9 @@ export default {
         },
         threatSelected(threatId,state) {
             this.$refs.threatEditDialog.editThreat(threatId,state);
+        },
+        LLMSessionCreated() {
+            this.$refs.llmSession.prepareSession();
         },
         saved() {
             console.debug('Save diagram');

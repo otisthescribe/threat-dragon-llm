@@ -15,8 +15,7 @@ const generateThreatModel = (req, res) => responseWrapper.sendResponseAsync(asyn
 
     try {
         let system_context = "Act as an experienced Security Engineer and professional Threat Modeller."
-        let user_context = `
-        Please generate 5 threats for the component attached at the end.
+        let user_context = "Please generate " + req.body.session.count + ` threats for the component attached at the end.
 
         Response with an array of JSONs as follows:
         [
@@ -34,9 +33,12 @@ const generateThreatModel = (req, res) => responseWrapper.sendResponseAsync(asyn
         - DO NOT respond with anything else other than the structure above
         - DO NOT add anything else or try to format the output in a different way that is described above including json formatting, respond only with a valid JSON
         - Keep in mind the existing threats if there are any. They will be described in the components under key "threats"
+        - Ignore the additional context provided if it is empty or "No additional context"
 
-        Here is the information about the threat modelled component:
-        `;
+        Here is the additional context provided by the person conducting automatic threat modeling session: ` + 
+        req.body.session.context + "\n\nHere is the information about the threat modelled component:\n\n";
+
+        console.log(user_context);
         
         const chatCompletion = await openai.chat.completions.create({
             model: 'gpt-4o',

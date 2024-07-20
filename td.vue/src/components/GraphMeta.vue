@@ -26,8 +26,8 @@
                     </b-btn>
 
                     <b-btn
-                        :disabled="disableNewThreat"
-                        @click="generateThreats()"
+                        :disabled="disableLLM"
+                        @click="llmSession()"
                         v-if="!!cellRef"
                         variant="primary"
                         size="sm"
@@ -92,7 +92,6 @@
 import { mapState } from 'vuex';
 
 import { createNewTypedThreat } from '@/service/threats/index.js';
-import { createNewGeneratedThreats } from '@/service/threats/genthreats.js';
 import { CELL_DATA_UPDATED, CELL_UNSELECTED } from '@/store/actions/cell.js';
 import dataChanged from '@/service/x6/graph/data-changed.js';
 import tmActions from '@/store/actions/threatmodel.js';
@@ -108,6 +107,10 @@ export default {
         threatTop: (state) => state.threatmodel.data.detail.threatTop,
         disableNewThreat: function (state) {
             return state.cell.ref.data.outOfScope || state.cell.ref.data.isTrustBoundary || state.cell.ref.data.type === 'tm.Text';
+        },
+        disableLLM: function (state) {
+            // WRITE LOGIC FOR DISABLING LLM BUTTON WHEN A USER DID NOT PROVIDE OPENAI KEY
+            return false
         }
     }),
     components: {
@@ -125,6 +128,9 @@ export default {
             console.debug('selected threat ID: ' + threatId);
             this.$emit('threatSelected', threatId,state);
         },
+        LLMSessionCreated() {
+            this.$emit('LLMSessionCreated');
+        },
         newThreat() {
             const threat = createNewTypedThreat(this.diagram.diagramType, this.cellRef.data.type,this.threatTop+1);
             console.debug('new threat ID: ' + threat.id);
@@ -136,17 +142,8 @@ export default {
             dataChanged.updateStyleAttrs(this.cellRef);
             this.threatSelected(threat.id,'new');
         },
-        async generateThreats() {
-            const threats = await createNewGeneratedThreats(this.diagram.diagramType, this.cellRef.data, this.threatTop+1);
-            threats.forEach((threat) => {
-                console.debug('new threat ID: ' + threat.id);
-                this.cellRef.data.threats.push(threat);
-                this.cellRef.data.hasOpenThreats = this.cellRef.data.threats.length > 0;
-                this.$store.dispatch(tmActions.update, { threatTop: this.threatTop+1 });
-                this.$store.dispatch(tmActions.modified);
-                this.$store.dispatch(CELL_DATA_UPDATED, this.cellRef.data);
-                dataChanged.updateStyleAttrs(this.cellRef);
-            });
+        llmSession() {
+            this.LLMSessionCreated();
         }
     },
 };

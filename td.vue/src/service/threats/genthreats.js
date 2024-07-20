@@ -1,8 +1,8 @@
 import threatGenerator from '../api/threatGenerator.js';
 import { createNewTypedThreat } from './index.js'
 
-export const createNewGeneratedThreats = async (modelType, cellRefData, start_number) => {
-    let gen_threats = await threatGenerator.generateThreatsForComponent(JSON.stringify(cellRefData));
+export const createNewGeneratedThreats = async (modelType, cellRefData, start_number, session) => {
+    let gen_threats = await threatGenerator.generateThreatsForComponent(JSON.stringify(cellRefData), session);
 
     let threat;
     let threats = [];

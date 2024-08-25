@@ -74,12 +74,13 @@ const generateThreatModelDiagram = (req, res) => responseWrapper.sendResponseAsy
 
         "First, analyze information about the diagram you are modeling threats for. Here is some information about it:\n\n" + req.body.diagram_data + 
 
-        `Response with a JSON stuctured as follows:
+        `Respond with a JSON stuctured as follows:
         {
             "threats": [
                 {
                 title: "",
                 description: "",
+                type: [Spoofing, Tampering, Repudation, Information disclosure, Denial of service, Elevation of privilege]
                 severity: "[Low, Medium or High]",
                 mitigation: "[suggest a mitigation here]",
                 score: "[integer]"

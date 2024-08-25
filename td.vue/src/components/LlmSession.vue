@@ -82,7 +82,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import { createNewGeneratedThreats } from '@/service/threats/genthreats.js';
+import { createNewGeneratedThreatsForComponent, createNewGeneratedThreatsForDiagram } from '@/service/threats/genthreats.js';
 import { CELL_DATA_UPDATED } from '@/store/actions/cell.js';
 import tmActions from '@/store/actions/threatmodel.js';
 import dataChanged from '@/service/x6/graph/data-changed.js';
@@ -114,24 +114,49 @@ export default {
         };
     },
     methods: {
-        prepareSession() {
+        prepareSession(type) {
+            this.session.type = type;
             this.showModal();
         },
         async startSession() {
+            // HIDE DIALOG WINDOW AND GENERATE THREATS - IT WILL SHOW A LOADING CIRCLE WHICH MEANS SESSION IN PROGRESS
             this.hideModal();
+            // IF USER GAVE NO ADDITIONAL CONTEXT, REPLACE WITH NO ADDITIONAL CONTEXT
             if (this.session.context == "") {
                 this.session.context = "No additional context";
             }
-            const threats = await createNewGeneratedThreats(this.diagram.diagramType, this.cellRef.data, this.threatTop+1, this.session);
-            threats.forEach((threat) => {
-                console.debug('new threat ID: ' + threat.id);
-                this.cellRef.data.threats.push(threat);
-                this.cellRef.data.hasOpenThreats = this.cellRef.data.threats.length > 0;
-                this.$store.dispatch(tmActions.update, { threatTop: this.threatTop+1 });
-                this.$store.dispatch(tmActions.modified);
-                this.$store.dispatch(CELL_DATA_UPDATED, this.cellRef.data);
-                dataChanged.updateStyleAttrs(this.cellRef);
-            });
+            // DEPENDING ON MODE GENERATE THREATS FOR COMPONENT, DIAGRAM OR PROJECT
+
+            // 1. COMPONENT
+            if (this.session.type == "component") {
+                const threats = await createNewGeneratedThreatsForComponent(this.diagram.diagramType, this.cellRef.data, this.threatTop+1, this.session);
+                threats.forEach((threat) => {
+                    console.debug('new threat ID: ' + threat.id);
+                    this.cellRef.data.threats.push(threat);
+                    this.cellRef.data.hasOpenThreats = this.cellRef.data.threats.length > 0;
+                    this.$store.dispatch(tmActions.update, { threatTop: this.threatTop+1 });
+                    this.$store.dispatch(tmActions.modified);
+                    this.$store.dispatch(CELL_DATA_UPDATED, this.cellRef.data);
+                    dataChanged.updateStyleAttrs(this.cellRef);
+                }); 
+            }
+            else if (this.session.type == "diagram") {
+                this.diagram.cells.forEach(async (cell) => {
+                    const cellRef = this.diagram.cells.find(x => x.data.id === cell.data.id);
+                    if (cell.data.type != "tm.Boundary" && cell.data.outOfScope == false) {
+                        const threats = await createNewGeneratedThreatsForDiagram(this.diagram, cell, this.threatTop+1, this.session);
+                        threats.forEach((threat) => {
+                            console.debug('new threat ID: ' + threat.id);
+                            cellRef.data.threats.push(threat);
+                            cellRef.data.hasOpenThreats = cellRef.data.threats.length > 0;
+                            this.$store.dispatch(tmActions.update, { threatTop: this.threatTop+1 });
+                            this.$store.dispatch(tmActions.modified);
+                            this.$store.dispatch(CELL_DATA_UPDATED, cellRef.data);
+                        }); 
+                    }
+                });
+            }
+            //
         },
         hideModal() {
             this.$refs.editModal.hide();

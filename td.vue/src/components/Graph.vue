@@ -10,7 +10,7 @@
                         <h3 class="td-graph-title">{{ diagram.title }}</h3>
                     </b-col>
                     <b-col align="right">
-                        <td-graph-buttons :graph="graph" @saved="saved" @closed="closed" />
+                        <td-graph-buttons :graph="graph" @saved="saved" @closed="closed" @LLMSessionCreated="LLMSessionCreated" />
                     </b-col>
                 </b-row>
                 <b-row>
@@ -89,8 +89,8 @@ export default {
         threatSelected(threatId,state) {
             this.$refs.threatEditDialog.editThreat(threatId,state);
         },
-        LLMSessionCreated() {
-            this.$refs.llmSession.prepareSession();
+        LLMSessionCreated(type) {
+            this.$refs.llmSession.prepareSession(type);
         },
         saved() {
             console.debug('Save diagram');

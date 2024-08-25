@@ -28,9 +28,8 @@ const unauthRoutes = (router) => {
     router.get('/api/oauth/:provider', auth.completeLogin);
 
     // LLM THREAT GENERATOR
-    router.post('/api/threatmodel/generate/model', llmService.generateThreatModel);
-    router.post('/api/threatmodel/generate/diagram', llmService.generateThreatModel);
-    router.post('/api/threatmodel/generate/component', llmService.generateThreatModel);
+    router.post('/api/threatmodel/generate/diagram', llmService.generateThreatModelDiagram);
+    router.post('/api/threatmodel/generate/component', llmService.generateThreatModelComponent);
 };
 
 /**

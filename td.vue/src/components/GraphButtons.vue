@@ -124,7 +124,7 @@ export default {
             }
         },
         generateThreats() {
-            console.log('Generate Threats button clicked');
+            this.$emit('LLMSessionCreated', "diagram");
         }
     }
 };

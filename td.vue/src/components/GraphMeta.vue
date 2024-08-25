@@ -27,7 +27,7 @@
 
                     <b-btn
                         :disabled="disableLLM"
-                        @click="llmSession()"
+                        @click="LLMSessionCreated()"
                         v-if="!!cellRef"
                         variant="primary"
                         size="sm"
@@ -129,7 +129,7 @@ export default {
             this.$emit('threatSelected', threatId,state);
         },
         LLMSessionCreated() {
-            this.$emit('LLMSessionCreated');
+            this.$emit('LLMSessionCreated', "component");
         },
         newThreat() {
             const threat = createNewTypedThreat(this.diagram.diagramType, this.cellRef.data.type,this.threatTop+1);
@@ -141,9 +141,6 @@ export default {
             this.$store.dispatch(CELL_DATA_UPDATED, this.cellRef.data);
             dataChanged.updateStyleAttrs(this.cellRef);
             this.threatSelected(threat.id,'new');
-        },
-        llmSession() {
-            this.LLMSessionCreated();
         }
     },
 };

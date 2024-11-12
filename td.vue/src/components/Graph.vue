@@ -90,7 +90,7 @@ export default {
             this.$refs.threatEditDialog.editThreat(threatId,state);
         },
         LLMSessionCreated(type) {
-            this.$refs.llmSession.prepareSession(type);
+            this.$refs.llmSession.prepareSession(type, this.graph);
         },
         saved() {
             console.debug('Save diagram');

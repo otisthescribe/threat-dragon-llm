@@ -1,11 +1,10 @@
 <template>
     <div>
-        <b-btn-group>
+        <b-btn-group class="mr-xl-2 mb-1 mb-xl-0">
             <td-form-button
                 :isPrimary="true"
                 :onBtnClick="generateThreats"
-                :text="$t('forms.threatModelDiagram')"
-                :style="{ marginRight: '10px' }" />
+                :text="$t('forms.threatModelDiagram')"/>
         </b-btn-group>
         <b-btn-group>
             <td-form-button

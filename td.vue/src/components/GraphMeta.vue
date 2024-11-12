@@ -25,14 +25,12 @@
                         {{ $t('threats.newThreat') }}
                     </b-btn>
 
-                    <b-btn
-                        :disabled="disableLLM"
+                    <b-btn class="float-right mr-2"
                         @click="LLMSessionCreated()"
                         v-if="!!cellRef"
                         variant="primary"
                         size="sm"
-                        class="float-right"
-                        :style="{ marginRight: '10px' }"
+                        :disabled="disableNewThreat"
                     > 
                         {{ $t('forms.threatModelComponent') }}
                     </b-btn>
@@ -107,10 +105,6 @@ export default {
         threatTop: (state) => state.threatmodel.data.detail.threatTop,
         disableNewThreat: function (state) {
             return state.cell.ref.data.outOfScope || state.cell.ref.data.isTrustBoundary || state.cell.ref.data.type === 'tm.Text';
-        },
-        disableLLM: function (state) {
-            // WRITE LOGIC FOR DISABLING LLM BUTTON WHEN A USER DID NOT PROVIDE OPENAI KEY
-            return false
         }
     }),
     components: {

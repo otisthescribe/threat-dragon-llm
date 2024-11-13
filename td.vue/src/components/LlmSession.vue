@@ -121,11 +121,10 @@
 <script>
 import Vue from 'vue';
 import { mapState } from 'vuex';
-import { createNewGeneratedThreatsForComponent, createNewGeneratedThreatsForDiagram, createNewGeneratedThreatsForThreatModel } from '@/service/threats/genthreats.js';
-import tmActions from '@/store/actions/threatmodel.js';
+import { createLlmThreats } from '@/service/threats/genthreats.js';
 import dataChanged from '@/service/x6/graph/data-changed.js';
 import { CELL_DATA_UPDATED, CELL_SELECTED, CELL_UNSELECTED } from '@/store/actions/cell.js';
-import { THREATMODEL_DIAGRAM_MODIFIED } from '@/store/actions/threatmodel.js';
+import { THREATMODEL_DIAGRAM_MODIFIED, THREATMODEL_DIAGRAM_SELECTED, THREATMODEL_UPDATE, THREATMODEL_DIAGRAM_APPLIED, THREATMODEL_MODIFIED, THREATMODEL_DIAGRAM_SAVED} from '@/store/actions/threatmodel.js';
 import { LOADER_FINISHED, LOADER_STARTED } from '@/store/actions/loader.js';
 import diagramService from '@/service/migration/diagram.js';
 
@@ -197,7 +196,7 @@ export default {
                     console.debug('new threat ID: ' + threat.id);
                     cell.data.threats.push(threat);
                     cell.data.hasOpenThreats = cell.data.threats.length > 0;
-                    this.$store.dispatch(tmActions.update, { threatTop: this.threatTop+1 });
+                    this.$store.dispatch(THREATMODEL_UPDATE, { threatTop: this.threatTop+1 });
                 });
             }
             else if (response.status == 403) {
@@ -217,7 +216,7 @@ export default {
                 this.progressStatus = `Processing ${this.cells_total} cell...`;
 
                 // GET AND HANDLE RESPONSE
-                let response = await createNewGeneratedThreatsForComponent(this.diagram, this.cellRef, this.threatTop + 1, this.session);
+                let response = await createLlmThreats(this.threatmodel, this.diagram, this.cellRef, this.threatTop + 1, this.session);
                 this.$store.dispatch(LOADER_STARTED);
                 this.handleResponse(response, this.cellRef);
                 if (response.status != 200) {
@@ -229,9 +228,14 @@ export default {
                 this.progress = Math.floor(((this.cells_processed) / this.cells_total) * 100);
 
                 // UPDATE CELL DATA AND STYLES
-                this.$store.dispatch(tmActions.modified);
                 this.$store.dispatch(CELL_DATA_UPDATED, this.cellRef.data);
                 dataChanged.updateStyleAttrs(this.cellRef);
+
+                // THREAT MODEL AND THREAT DIAGRAM MODIFIED
+                this.$store.dispatch(THREATMODEL_DIAGRAM_MODIFIED, this.diagram);
+                this.$store.dispatch(THREATMODEL_DIAGRAM_APPLIED);
+                this.$store.dispatch(THREATMODEL_MODIFIED);
+                
 
                 // Finish successfully
                 this.progressStatus = "Threat modeling session finished!";
@@ -253,7 +257,7 @@ export default {
                 const cellPromises = this.graph.getCells().map(async (cell) => {
                     if (cell.data.type != "tm.Boundary" && cell.data.outOfScope == false) {
                         // GET AND HANDLE RESPONSE
-                        let response = await createNewGeneratedThreatsForDiagram(this.diagram, cell, this.threatTop + 1, this.session);
+                        let response = await createLlmThreats(this.threatmodel, this.diagram, cell, this.threatTop + 1, this.session);
                         this.$store.dispatch(LOADER_STARTED);
                         this.handleResponse(response, cell);
                         if (response.status != 200) {
@@ -275,9 +279,10 @@ export default {
                 // Wait for all promises to complete
                 await Promise.all(cellPromises);
 
-                // UPDATE DIAGRAM
-                this.$store.dispatch(tmActions.modified);
+                // THREAT MODEL AND THREAT DIAGRAM MODIFIED
                 this.$store.dispatch(THREATMODEL_DIAGRAM_MODIFIED, this.diagram);
+                this.$store.dispatch(THREATMODEL_DIAGRAM_APPLIED);
+                this.$store.dispatch(THREATMODEL_MODIFIED);
 
                 // Finish successfully
                 this.progressStatus = "Threat modeling session finished!";
@@ -289,6 +294,9 @@ export default {
             }
         },
         async threatsForThreatModel() {
+            Vue.$toast.info("Generating threats for the entire threat model is not yet supported");
+            this.progressStatus = "This mode is not yet supported.";
+            return 0;
             try {
                 // ITERATE OVER ALL DIAGRAMS
                 this.cells_processed = 0;
@@ -299,11 +307,14 @@ export default {
                         // CREATE GRAPH INSTANCE HERE FOR EACH DIAGRAM
                         let graph = diagramService.edit(this.$refs.graph_container, diagram);
 
+                        // SELECT DIAGRAM AS ACTIVE
+                        this.$store.dispatch(THREATMODEL_DIAGRAM_SELECTED, diagram);
+
                         // ITERATE OVER ALL DIAGRAM'S CELLS
                         const cellPromises = graph.getCells().map(async (cell) => {
                             if (cell.data.type != "tm.Boundary" && cell.data.outOfScope == false) {
                                 // GET AND HANDLE RESPONSE
-                                let response = await createNewGeneratedThreatsForThreatModel(this.threatmodel.summary, diagram, cell, this.threatTop + 1, this.session);
+                                let response = await createLlmThreats(this.threatmodel, diagram, cell, this.threatTop + 1, this.session);
                                 this.$store.dispatch(LOADER_STARTED);
                                 this.handleResponse(response, cell);
                                 if (response.status != 200) {
@@ -321,9 +332,12 @@ export default {
                         // Wait for all promises to complete
                         await Promise.all(cellPromises);
 
-                        // UPDATE DIAGRAM
-                        this.$store.dispatch(tmActions.modified);
+
+                        // THREAT DIAGRAM MODIFIED
                         this.$store.dispatch(THREATMODEL_DIAGRAM_MODIFIED, diagram);
+                        this.$store.dispatch(THREATMODEL_DIAGRAM_APPLIED);
+                        this.$store.dispatch(THREATMODEL_DIAGRAM_SAVED, diagram);
+                        this.$store.dispatch(THREATMODEL_STASH);
 
                         // Update progress
                         this.cells_processed += 1;
@@ -338,7 +352,7 @@ export default {
                 await Promise.all(diagramPromises);
 
                 // UPDATE THREAT MODEL
-                this.$store.dispatch(tmActions.modified);
+                this.$store.dispatch(THREATMODEL_MODIFIED);
 
                 // Finish successfully
                 this.progressStatus = "Threat modeling session finished!";

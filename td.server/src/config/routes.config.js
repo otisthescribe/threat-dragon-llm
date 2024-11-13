@@ -1,12 +1,11 @@
-import express from 'express';
-
 import auth from '../controllers/auth.js';
 import bearer from './bearer.config.js';
 import configController from "../controllers/configcontroller";
+import express from 'express';
 import healthcheck from '../controllers/healthz.js';
 import homeController from '../controllers/homecontroller.js';
-import threatmodelController from '../controllers/threatmodelcontroller.js';
 import llmService from '../llm/llmService.js';
+import threatmodelController from '../controllers/threatmodelcontroller.js';
 
 /**
  * Routes that do **NOT** require authentication
@@ -27,10 +26,7 @@ const unauthRoutes = (router) => {
     router.get('/api/oauth/return', auth.oauthReturn);
     router.get('/api/oauth/:provider', auth.completeLogin);
 
-    // LLM THREAT GENERATOR
-    router.post('/api/threatmodel/generate/diagram', llmService.generateThreatModelDiagram);
-    router.post('/api/threatmodel/generate/component', llmService.generateThreatModelComponent);
-    router.post('/api/threatmodel/generate/threatmodel', llmService.generateThreatModelThreatModel);
+    router.post('/api/threatmodel/generate/threats', llmService.generateThreats);
 };
 
 /**

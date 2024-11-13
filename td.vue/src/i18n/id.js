@@ -29,6 +29,10 @@ const id = {
             displayName: 'Bitbucket',
             loginWith: 'Masuk dengan'
         },
+        google: {
+            displayName: 'Google',
+            loginWith: 'Masuk dengan'
+        },
         local: {
             displayName: 'Sesi Lokal',
             loginWith: 'Masuk ke'
@@ -207,6 +211,10 @@ const id = {
             zoom: {
                 shortcut: '(ctrl/cmd) + roda mouse',
                 action: 'Perbesar/Perkecil'
+            },
+            save: {
+                shortcut: '(ctrl/cmd) + s',
+                action: 'Save'
             }
         },
         stencil: {
@@ -253,7 +261,9 @@ const id = {
         saveAs: 'Simpan Sebagai',
         saveModel: 'Simpan Model',
         saveModelAs: 'Simpan Model Sebagai',
-        search: 'Cari'
+        search: 'Cari',
+        next: 'Berikutnya',
+        previous: 'sebelumnya'
     },
     threats: {
         model: {
@@ -345,6 +355,7 @@ const id = {
             showMitigatedThreats: 'Tampilkan ancaman yang diredam',
             showModelDiagrams: 'Tampilkan diagram model',
             showEmpty: 'Tampilkan elemen kosong',
+            showProperties: 'Show element properties',
             showBranding: 'Logo Threat Dragon'
         },
         title: 'Laporan model ancaman untuk',

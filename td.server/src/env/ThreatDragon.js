@@ -10,6 +10,7 @@ class ThreatDragonEnv extends Env {
     }
 
     // if any  of the defaults are changed then ensure docs are updated in development/environment.md
+    // if the default PORT is changed then ensure the CI pipeline still works
     get properties () {
         return [
             { key: 'NODE_ENV', required: false, defaultValue:  'production'},
@@ -17,7 +18,9 @@ class ThreatDragonEnv extends Env {
             { key: 'LOG_MAX_FILE_SIZE', required: false, defaultValue: 24 },
             { key: 'LOG_LEVEL', required: false, defaultValue: 'warn' },
             { key: 'SERVER_API_PROTOCOL', required: false, defaultValue: 'https' },
-            { key: 'REPO_ROOT_DIRECTORY', required: false, defaultValue: 'ThreatDragonModels' }
+            { key: 'REPO_ROOT_DIRECTORY', required: false, defaultValue: 'ThreatDragonModels' },
+            { key: 'REPO_USE_SEARCH', required: false, defaultValue: false },
+            { key: 'REPO_SEARCH_QUERY', required: false }
         ];
     }
 }

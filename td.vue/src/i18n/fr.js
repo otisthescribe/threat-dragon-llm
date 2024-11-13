@@ -29,6 +29,10 @@ const fra = {
             displayName: 'Bitbucket',
             loginWith: 'Se connecter avec'
         },
+        google: {
+            displayName: 'Google',
+            loginWith: 'Se connecter avec'
+        },
         local: {
             displayName: 'une session locale',
             loginWith: 'Se connecter avec'
@@ -207,6 +211,10 @@ const fra = {
             zoom: {
                 shortcut: '(ctrl/cmd) + molette de souris',
                 action: 'Agrandir'
+            },
+            save: {
+                shortcut: '(ctrl/cmd) + s',
+                action: 'Save'
             }
         },
         stencil: {
@@ -253,7 +261,9 @@ const fra = {
         saveAs: 'Sauvergarder en tant que',
         saveModel: 'Sauvergarder le modèle',
         saveModelAs: 'Sauvergarder le modèle en tant que',
-        search: 'Rechercher'
+        search: 'Rechercher',
+        next: 'suivant',
+        previous: 'précédent'
     },
     threats: {
         model: {
@@ -345,6 +355,7 @@ const fra = {
             showMitigatedThreats: 'Afficher les menaces mitigées',
             showModelDiagrams: 'Afficher les diagrammes du modèle',
             showEmpty: 'Show empty elements',
+            showProperties: 'Show element properties',
             showBranding: 'Icône de Threat Dragon'
         },
         title: 'Rapport sur le modèle de menace pour',

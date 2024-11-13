@@ -29,6 +29,10 @@ const deu = {
             displayName: 'Bitbucket',
             loginWith: 'Anmelden mit'
         },
+        google: {
+            displayName: 'Google',
+            loginWith: 'Anmelden mit'
+        },
         local: {
             displayName: 'Lokale Sitzung',
             loginWith: 'Anmelden an'
@@ -207,6 +211,10 @@ const deu = {
             zoom: {
                 shortcut: '(Strg/cmd) + Mausrad',
                 action: 'Zoomen'
+            },
+            save: {
+                shortcut: '(ctrl/cmd) + s',
+                action: 'Save'
             }
         },
         stencil: {
@@ -253,7 +261,9 @@ const deu = {
         saveAs: 'Speichern als',
         saveModel: 'Modell speichern',
         saveModelAs: 'Modell speichern als',
-        search: 'Suchen'
+        search: 'Suchen',
+        next: 'nächste',
+        previous: 'vorherige'
     },
     threats: {
         model: {
@@ -345,6 +355,7 @@ const deu = {
             showMitigatedThreats: 'Abgeschwächte Bedrohungen anzeigen',
             showModelDiagrams: 'Modell Diagramme anzeigen',
             showEmpty: 'Leere Elemente anzeigen',
+            showProperties: 'Show element properties',
             showBranding: 'Threat Dragon Logo'
         },
         title: 'Bedrohungsmodell Bereicht für',

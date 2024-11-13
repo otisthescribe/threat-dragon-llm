@@ -24,12 +24,12 @@
                 </b-row>
             </b-col>
         </b-row>
-        <td-graph-meta @threatSelected="threatSelected" @LLMSessionCreated="LLMSessionCreated" />
-
+        <td-graph-meta @threatSelected="threatSelected" @LLMSessionCreated="LLMSessionCreated" @threatSuggest="threatSuggest" />
         <div>
             <td-keyboard-shortcuts />
             <td-threat-edit-dialog ref="threatEditDialog" />
             <td-llm-session ref="llmSession" />
+            <td-threat-suggest-dialog ref="threatSuggestDialog" />
         </div>
     </div>
 </template>
@@ -48,6 +48,7 @@ import TdLlmSession from '@/components/LlmSession.vue'
 import TdGraphMeta from '@/components/GraphMeta.vue';
 import TdKeyboardShortcuts from '@/components/KeyboardShortcuts.vue';
 import TdThreatEditDialog from '@/components/ThreatEditDialog.vue';
+import TdThreatSuggestDialog from './ThreatSuggestDialog.vue';
 
 import { getProviderType } from '@/service/provider/providers.js';
 import diagramService from '@/service/migration/diagram.js';
@@ -62,6 +63,7 @@ export default {
         TdKeyboardShortcuts,
         TdThreatEditDialog,
         TdLlmSession
+        TdThreatSuggestDialog
     },
     computed: mapState({
         diagram: (state) => state.threatmodel.selectedDiagram,
@@ -80,7 +82,7 @@ export default {
             this.graph = diagramService.edit(this.$refs.graph_container, this.diagram);
             stencil.get(this.graph, this.$refs.stencil_container);
             this.$store.dispatch(tmActions.notModified);
-            this.graph.history.on('change', () => {
+            this.graph.getPlugin('history').on('change', () => {
                 const updated = Object.assign({}, this.diagram);
                 updated.cells = this.graph.toJSON().cells;
                 this.$store.dispatch(tmActions.diagramModified, updated);
@@ -91,6 +93,8 @@ export default {
         },
         LLMSessionCreated(type) {
             this.$refs.llmSession.prepareSession(type, this.graph);
+        threatSuggest(type){
+            this.$refs.threatSuggestDialog.showModal(type);
         },
         saved() {
             console.debug('Save diagram');

@@ -29,6 +29,10 @@ const hin = {
             displayName: 'Bitbucket',
             loginWith: 'से लोगिन करें'
         },
+        google: {
+            displayName: 'Google',
+            loginWith: 'से लोगिन करें'
+        },
         local: {
             displayName: 'स्थानीय सत्र',
             loginWith: 'से लोगिन करें'
@@ -207,6 +211,10 @@ const hin = {
             zoom: {
                 shortcut: '(ctrl/cmd) + mousewheel',
                 action: 'ज़ूम'
+            },
+            save: {
+                shortcut: '(ctrl/cmd) + s',
+                action: 'Save'
             }
         },
         stencil: {
@@ -253,7 +261,9 @@ const hin = {
         saveAs: 'इस रूप में सहेजें',
         saveModel: 'मॉडल सेव करें',
         saveModelAs: 'मॉडल को इस रूप में सहेजें',
-        search: 'खोज'
+        search: 'खोज',
+        next: 'अगला',
+        previous: 'पहले का'
     },
     threats: {
         model: {
@@ -345,6 +355,7 @@ const hin = {
             showMitigatedThreats: 'कम किए गए खतरे दिखाएं',
             showModelDiagrams: 'मॉडल आरेख दिखाएं',
             showEmpty: 'खाली तत्व दिखाएं',
+            showProperties: 'Show element properties',
             showBranding: 'शो थ्रेट ड्रैगन ब्रांडिंग'
         },
         title: 'के लिए थ्रेट मॉडल रिपोर्ट',

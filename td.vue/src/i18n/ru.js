@@ -29,6 +29,10 @@ const rus = {
             displayName: 'Bitbucket',
             loginWith: 'Login with'
         },
+        google: {
+            displayName: 'Google',
+            loginWith: 'Login with'
+        },
         local: {
             displayName: 'Local Session',
             loginWith: 'Login to'
@@ -207,6 +211,10 @@ const rus = {
             zoom: {
                 shortcut: '(ctrl/cmd) + mousewheel',
                 action: 'Zoom'
+            },
+            save: {
+                shortcut: '(ctrl/cmd) + s',
+                action: 'Save'
             }
         },
         stencil: {
@@ -253,7 +261,9 @@ const rus = {
         saveAs: 'Save As',
         saveModel: 'Save Model',
         saveModelAs: 'Save Model As',
-        search: 'Search'
+        search: 'Search',
+        next: 'Next',
+        previous: 'Previous'
     },
     threats: {
         model: {
@@ -345,6 +355,7 @@ const rus = {
             showMitigatedThreats: 'Show mitigated threats',
             showModelDiagrams: 'Show model diagrams',
             showEmpty: 'Show empty elements',
+            showProperties: 'Show element properties',
             showBranding: 'Threat Dragon logo'
         },
         title: 'Threat model report for',

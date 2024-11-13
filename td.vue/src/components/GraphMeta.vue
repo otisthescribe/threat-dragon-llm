@@ -11,7 +11,6 @@
             <b-card header-tag="header">
                 <template #header>
                     {{ $t('threatmodel.threats') }}
-
                     <b-btn
                         :disabled="disableNewThreat"
                         @click="newThreat()"
@@ -21,7 +20,7 @@
                         class="float-right"
                         :style="{ marginRight: '10px' }"
                     >
-                        <font-awesome-icon icon="plus" class="mr-1"></font-awesome-icon>    
+                        <font-awesome-icon icon="plus" class="mr-1"></font-awesome-icon>
                         {{ $t('threats.newThreat') }}
                     </b-btn>
 
@@ -64,11 +63,32 @@
                     </b-card-text>
                 </b-card-body>
             </b-card>
+            <a href="javascript:void(0)"
+                v-if="!disableNewThreat"
+                @click="AddThreatByType()"
+                class="new-threat-by-type m-2"
+            >
+                    <font-awesome-icon icon="plus"></font-awesome-icon>
+                    {{ $t('threats.newThreatByType') }}
+            </a>
+            <a href="javascript:void(0)"
+                v-if="!disableNewThreat"
+                @click="AddThreatByContext()"
+                class="new-threat-by-type m-2"
+            >
+                    <font-awesome-icon icon="plus"></font-awesome-icon>
+                    {{ $t('threats.newThreatByContext') }}
+            </a>
         </b-col>
     </b-row>
 </template>
 
 <style lang="scss" scoped>
+.new-threat-by-type {
+    color: $orange;
+    font-size: 16px;
+    padding: 15px;
+}
 .props-header {
     a {
         font-size: 12px;
@@ -104,6 +124,9 @@ export default {
         diagram: (state) => state.threatmodel.selectedDiagram,
         threatTop: (state) => state.threatmodel.data.detail.threatTop,
         disableNewThreat: function (state) {
+            if (!state.cell?.ref?.data) {
+                return true;
+            }
             return state.cell.ref.data.outOfScope || state.cell.ref.data.isTrustBoundary || state.cell.ref.data.type === 'tm.Text';
         }
     }),
@@ -135,6 +158,12 @@ export default {
             this.$store.dispatch(CELL_DATA_UPDATED, this.cellRef.data);
             dataChanged.updateStyleAttrs(this.cellRef);
             this.threatSelected(threat.id,'new');
+        },
+        AddThreatByType(){
+            this.$emit('threatSuggest','type');
+        },
+        AddThreatByContext(){
+            this.$emit('threatSuggest','context');
         }
     },
 };

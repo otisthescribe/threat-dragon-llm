@@ -29,6 +29,10 @@ const fin = {
             displayName: 'Bitbucketissa',
             loginWith: 'Kirjaudu sisään'
         },
+        google: {
+            displayName: 'Google',
+            loginWith: 'Kirjaudu sisään'
+        },
         local: {
             displayName: 'paikallisesti',
             loginWith: 'Kirjaudu sisään'
@@ -207,6 +211,10 @@ const fin = {
             zoom: {
                 shortcut: '(ctrl/cmd) + rulla',
                 action: 'Suurennos'
+            },
+            save: {
+                shortcut: '(ctrl/cmd) + s',
+                action: 'Save'
             }
         },
         stencil: {
@@ -253,7 +261,9 @@ const fin = {
         saveAs: 'Tallenna Nimellä',
         saveModel: 'Tallenna Uhkamalli',
         saveModelAs: 'Tallenna Uhkamalli Nimellä',
-        search: 'Etsi'
+        search: 'Etsi',
+        next: 'Seuraava',
+        previous: 'Edellinen'
     },
     threats: {
         model: {
@@ -345,6 +355,7 @@ const fin = {
             showMitigatedThreats: 'Näytä hallitut uhkat',
             showModelDiagrams: 'Näytä uhkamallin kaaviot',
             showEmpty: 'Näytä tyhjät elementit',
+            showProperties: 'Show element properties',
             showBranding: 'Threat Dragon logo'
         },
         title: 'Uhkamallinnus kohteelle',

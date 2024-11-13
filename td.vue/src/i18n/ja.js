@@ -25,6 +25,10 @@ const jpn = {
             displayName: 'Bitbucketで',
             loginWith: 'ログイン'
         },
+        google: {
+            displayName: 'Google',
+            loginWith: 'ログイン'
+        },
         local: {
             displayName: 'ローカルセッション',
             loginWith: 'ログイン'
@@ -203,6 +207,10 @@ const jpn = {
             zoom: {
                 shortcut: '(コントロール/コマンド) + ホイール',
                 action: '拡大・縮小'
+            },
+            save: {
+                shortcut: '(ctrl/cmd) + s',
+                action: 'Save'
             }
         },
         stencil: {
@@ -249,7 +257,9 @@ const jpn = {
         saveAs: '名前を付けて保存',
         saveModel: 'モデルを保存',
         saveModelAs: '名前を付けてモデルを保存',
-        search: '検索'
+        search: '検索',
+        next: '次',
+        previous: '前の'
     },
     threats: {
         model: {
@@ -341,6 +351,7 @@ const jpn = {
             showMitigatedThreats: '解決済みの脅威を表示',
             showModelDiagrams: 'モデルの図面を表示',
             showEmpty: '空要素を表示',
+            showProperties: 'Show element properties',
             showBranding: 'Threat Dragonロゴ'
         },
         title: '脅威レポート',

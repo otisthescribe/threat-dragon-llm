@@ -182,6 +182,8 @@ export default {
             Object.keys(threatTypes).forEach((type) => {
                 res.push(this.$t(type));
             }, this);
+            if(!res.includes(this.threat.type))
+                res.push(this.threat.type);
             return res;
         },
         statuses() {
@@ -228,19 +230,19 @@ export default {
         },
         updateThreat() {
             const threatRef = this.cellRef.data.threats.find(x => x.id === this.threat.id);
-            const objRef = this.cellRef.data;
-            if(!objRef.threatFrequency){
-                const tmpfreq = threatModels.getFrequencyMapByElement(this.threat.modelType,this.cellRef.data.type);
-                if(tmpfreq!==null)
-                    objRef.threatFrequency = tmpfreq;
-            }
-            if(objRef.threatFrequency){
-                Object.keys(objRef.threatFrequency).forEach((k)=>{
-                    if(this.$t(`threats.model.${this.threat.modelType.toLowerCase()}.${k}`)===this.threat.type)
-                        objRef.threatFrequency[k]++;
-                });
-            }
             if (threatRef) {
+                const objRef = this.cellRef.data;
+                if(!objRef.threatFrequency){
+                    const tmpfreq = threatModels.getFrequencyMapByElement(this.threat.modelType,this.cellRef.data.type);
+                    if(tmpfreq!==null)
+                        objRef.threatFrequency = tmpfreq;
+                }
+                if(objRef.threatFrequency){
+                    Object.keys(objRef.threatFrequency).forEach((k)=>{
+                        if(this.$t(`threats.model.${this.threat.modelType.toLowerCase()}.${k}`)===this.threat.type)
+                            objRef.threatFrequency[k]++;
+                    });
+                }
                 threatRef.status = this.threat.status;
                 threatRef.severity = this.threat.severity;
                 threatRef.title = this.threat.title;

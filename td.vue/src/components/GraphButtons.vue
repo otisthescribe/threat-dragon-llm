@@ -49,18 +49,17 @@
                 icon="th"
                 :title="$t('threatmodel.buttons.toggleGrid')"
                 text="" />
-
+                
             <td-form-button
                 :onBtnClick="closeDiagram"
                 icon="times"
                 :text="$t('forms.close')" />
-                
+
             <td-form-button
                 :isPrimary="true"
                 :onBtnClick="save"
                 icon="save"
                 :text="$t('forms.save')" />
-
         </b-btn-group>    
     </div>  
 </template>
@@ -95,20 +94,30 @@ export default {
             return;
         },
         undo() {
-            if (this.graph.canUndo()) {
-                this.graph.undo();
+            if (this.graph.getPlugin('history').canUndo()) {
+                this.graph.getPlugin('history').undo();
             }
         },
         redo() {
-            if (this.graph.canRedo()) {
-                this.graph.redo();
+            if (this.graph.getPlugin('history').canRedo()) {
+                this.graph.getPlugin('history').redo();
             }
         },
         zoomIn() {
-            this.graph.zoom(0.2);
+            if (this.graph.zoom() < 1.0) {
+                this.graph.zoom(0.1);
+            } else {
+                this.graph.zoom(0.2);
+            }
+            console.debug('zoom to ' + this.graph.zoom());
         },
         zoomOut() {
-            this.graph.zoom(-0.2);
+            if (this.graph.zoom() < 1.0) {
+                this.graph.zoom(-0.1);
+            } else {
+                this.graph.zoom(-0.2);
+            }
+            console.debug('zoom to ' + this.graph.zoom());
         },
         deleteSelected() {
             this.graph.removeCells(this.graph.getSelectedCells());

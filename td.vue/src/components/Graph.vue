@@ -44,7 +44,7 @@
 import { mapState } from 'vuex';
 
 import TdGraphButtons from '@/components/GraphButtons.vue';
-import TdLlmSession from '@/components/LlmSession.vue'
+import TdLlmSession from '@/components/LlmSession.vue';
 import TdGraphMeta from '@/components/GraphMeta.vue';
 import TdKeyboardShortcuts from '@/components/KeyboardShortcuts.vue';
 import TdThreatEditDialog from '@/components/ThreatEditDialog.vue';

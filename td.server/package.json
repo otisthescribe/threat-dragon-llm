@@ -38,7 +38,7 @@
   },
   "resolutions": {},
   "dependencies": {
-    "@babel/runtime": "^7.21.0",
+    "@babel/runtime": "^7.27.0",
     "openai": "^4.52.0",
     "@gitbeaker/rest": "^39.34.2",
     "axios": "^1.8.2",

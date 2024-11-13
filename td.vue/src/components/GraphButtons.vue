@@ -44,12 +44,12 @@
                 :title="$t('threatmodel.buttons.zoomOut')"
                 text="" />
 
-        <td-form-button
-            :onBtnClick="toggleGrid"
-            icon="th"
-            :title="$t('threatmodel.buttons.toggleGrid')"
-            text="" />
-
+            <td-form-button
+                :onBtnClick="toggleGrid"
+                icon="th"
+                :title="$t('threatmodel.buttons.toggleGrid')"
+                text="" />
+                
         <b-dropdown right :text="$t('forms.export')" id="export-graph-btn">
             <b-dropdown-item @click="exportPNG" id="export-graph-png">
                 PNG
@@ -62,10 +62,10 @@
             </b-dropdown-item>
         </b-dropdown>
 
-        <td-form-button
-            :onBtnClick="closeDiagram"
-            icon="times"
-            :text="$t('forms.close')" />
+            <td-form-button
+                :onBtnClick="closeDiagram"
+                icon="times"
+                :text="$t('forms.close')" />
 
             <td-form-button
                 :isPrimary="true"
@@ -146,6 +146,22 @@ export default {
                 this.graph.showGrid();
                 this.gridShowing = true;
             }
+        },
+        exportPNG() {
+            this.graph.exportPNG(`${this.diagram.title}.png`, {
+                padding: 50
+            });
+        },
+        exportJPEG() {
+            this.graph.exportJPEG(`${this.diagram.title}.jpeg`, {
+                padding: 50
+            });
+        },
+        exportSVG() {
+            this.graph.exportSVG(`${this.diagram.title}.svg`);
+        },
+        generateThreats() {
+            this.$emit('LLMSessionCreated', "diagram");
         }
     }
 };

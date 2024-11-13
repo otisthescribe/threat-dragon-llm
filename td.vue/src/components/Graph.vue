@@ -62,7 +62,7 @@ export default {
         TdGraphMeta,
         TdKeyboardShortcuts,
         TdThreatEditDialog,
-        TdLlmSession
+        TdLlmSession,
         TdThreatSuggestDialog
     },
     computed: mapState({
@@ -93,6 +93,7 @@ export default {
         },
         LLMSessionCreated(type) {
             this.$refs.llmSession.prepareSession(type, this.graph);
+        },
         threatSuggest(type){
             this.$refs.threatSuggestDialog.showModal(type);
         },

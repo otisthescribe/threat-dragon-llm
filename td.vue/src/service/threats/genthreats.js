@@ -7,7 +7,7 @@ import { tc } from '../../i18n/index.js';
  * @param {string} type - The type of the threat.
  * @returns {string} The translated STRIDE category.
  */
-function translate_to_stride(type) {
+export function translate_to_stride(type) {
     switch (type) {
     case 'Spoofing':
         // Spoofing identity threats
@@ -39,7 +39,7 @@ function translate_to_stride(type) {
  * @param {Object} diagram - The diagram containing all cells.
  * @returns {Object} An object containing the cell details and its connections.
  */
-function get_cell_neighbours(cell, diagram) {
+export function get_cell_neighbours(cell, diagram) {
     let results = {
         cell: {
             type: cell.shape,
@@ -161,11 +161,9 @@ export const createLlmThreats = async (threat_model, diagram, cell, first_number
         };
     } catch (error) {
         console.error('Error generating threats:', error);
-        console.log(error.response.status);
-        // RETURN EMPTY THREATS AND ERROR STATUS
         return {
             threats: [],
-            status: error.response ? error.response.status : 500
+            status: 500
         };
     }
 };

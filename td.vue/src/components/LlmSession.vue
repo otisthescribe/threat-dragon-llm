@@ -4,7 +4,6 @@
             v-if="!!session"
             id="llm-session"
             size="lg"
-            ok-variant="primary"
             header-bg-variant="primary"
             header-text-variant="light"
             :title="getModalTitle()"
@@ -88,7 +87,8 @@
 
             <template #modal-footer>
                 <div class="w-100">
-                    <b-button  
+                    <b-button
+                        id="startSessionButton"
                         variant="danger"
                         class="float-right"
                         v-if="!isProcessing"    
@@ -97,6 +97,7 @@
                         {{ $t('forms.startSession') }}
                     </b-button>
                     <b-button
+                        id="cancelSessionButton"
                         variant="secondary"
                         class="float-right mr-2"
                         v-if="!isProcessing"    
@@ -105,6 +106,7 @@
                         {{ $t('forms.cancel') }}
                     </b-button>
                     <b-button
+                        id="closeSessionButton"
                         variant="danger"
                         class="float-right mr-2"
                         v-if="isProcessing"    
@@ -312,9 +314,6 @@ export default {
             }
             else if (this.session.type == 'diagram') {
                 await this.threatsForDiagram();
-            }
-            else if (this.session.type == 'threat-model') {
-                await this.threatsForThreatModel();
             }
 
             // HIDE LOADER

@@ -50,13 +50,6 @@
         </b-row>
         <b-row>
             <b-col class="text-right">
-                <b-btn-group class="mr-md-2 my-2">
-                    <td-form-button
-                        id="td-generate-threats-btn"
-                        :isPrimary="true"
-                        :onBtnClick="onGenerateThreats"
-                        :text="$t('forms.threatModelAll')" />
-                </b-btn-group>
                 <b-btn-group>
                     <td-form-button
                         id="td-edit-btn"
@@ -77,9 +70,6 @@
                 </b-btn-group>
             </b-col>
         </b-row>
-        <div>
-            <td-llm-session ref="llmSession" />
-        </div>
     </div>
 </template>
 
@@ -107,7 +97,6 @@ import { mapState } from 'vuex';
 
 import { getProviderType } from '@/service/provider/providers.js';
 import TdFormButton from '@/components/FormButton.vue';
-import TdLlmSession from '@/components/LlmSession.vue';
 import TdThreatModelSummaryCard from '@/components/ThreatModelSummaryCard.vue';
 import tmActions from '@/store/actions/threatmodel.js';
 
@@ -115,8 +104,7 @@ export default {
     name: 'ThreatModel',
     components: {
         TdFormButton,
-        TdThreatModelSummaryCard,
-        TdLlmSession
+        TdThreatModelSummaryCard
     },
     computed: mapState({
         model: (state) => state.threatmodel.data,
@@ -147,9 +135,6 @@ export default {
             this.$store.dispatch(tmActions.diagramSelected, diagram);
             const path = `${this.$route.path}/edit/${encodeURIComponent(diagram.title)}`;
             this.$router.push(path);
-        },
-        onGenerateThreats() {
-            let new_model = this.$refs.llmSession.prepareSession("threat-model", this.model);
         }
     },
     mounted() {

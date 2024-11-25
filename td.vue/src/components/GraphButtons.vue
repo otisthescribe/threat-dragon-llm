@@ -161,7 +161,7 @@ export default {
             this.graph.exportSVG(`${this.diagram.title}.svg`);
         },
         generateThreats() {
-            this.$emit('LLMSessionCreated', "diagram");
+            this.$emit('LLMSessionCreated', 'diagram');
         }
     }
 };

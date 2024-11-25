@@ -37,7 +37,8 @@
 !ThreatDragonModels/*model.json
 !ThreatDragonModels/test/
 !ThreatDragonModels/test/*.json
-!ThreatDragonModels/*.json
+!ThreatDragonModels/URL*
+!ThreatDragonModels/URL*/*.json
 
 # appendixes
 !Appendixes

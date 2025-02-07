@@ -50,6 +50,18 @@
             :title="$t('threatmodel.buttons.toggleGrid')"
             text="" />
 
+        <b-dropdown right :text="$t('forms.export')" id="export-graph-btn">
+            <b-dropdown-item @click="exportPNG" id="export-graph-png">
+                PNG
+            </b-dropdown-item>
+            <b-dropdown-item @click="exportJPEG" id="export-graph-jpeg">
+                JPEG
+            </b-dropdown-item>
+            <b-dropdown-item @click="exportSVG" id="export-graph-svg">
+                SVG
+            </b-dropdown-item>
+        </b-dropdown>
+
         <td-form-button
             :onBtnClick="closeDiagram"
             icon="times"

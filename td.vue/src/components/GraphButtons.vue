@@ -44,16 +44,16 @@
                 :title="$t('threatmodel.buttons.zoomOut')"
                 text="" />
 
-            <td-form-button
-                :onBtnClick="toggleGrid"
-                icon="th"
-                :title="$t('threatmodel.buttons.toggleGrid')"
-                text="" />
-                
-            <td-form-button
-                :onBtnClick="closeDiagram"
-                icon="times"
-                :text="$t('forms.close')" />
+        <td-form-button
+            :onBtnClick="toggleGrid"
+            icon="th"
+            :title="$t('threatmodel.buttons.toggleGrid')"
+            text="" />
+
+        <td-form-button
+            :onBtnClick="closeDiagram"
+            icon="times"
+            :text="$t('forms.close')" />
 
             <td-form-button
                 :isPrimary="true"
@@ -65,6 +65,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import TdFormButton from '@/components/FormButton.vue';
 
 export default {
@@ -72,6 +74,9 @@ export default {
     components: {
         TdFormButton
     },
+    computed: mapState({
+        diagram: (state) => state.threatmodel.selectedDiagram,
+    }),
     data() {
         return {
             gridShowing: true
@@ -130,9 +135,6 @@ export default {
                 this.graph.showGrid();
                 this.gridShowing = true;
             }
-        },
-        generateThreats() {
-            this.$emit('LLMSessionCreated', 'diagram');
         }
     }
 };

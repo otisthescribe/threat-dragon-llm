@@ -102,7 +102,6 @@ export default {
     methods: {
         save() {
             this.$emit('saved');
-
         },
         async closeDiagram() {
             this.$emit('closed');

@@ -55,6 +55,8 @@
 !docs/*.md
 !docs/*.yml
 !docs/*.html
+!docs/_layouts/
+!docs/_layouts/*.html
 !docs/home/
 !docs/home/*.md
 !docs/testing/

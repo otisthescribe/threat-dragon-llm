@@ -6,19 +6,19 @@
             </b-col>
             <b-col md="10">
                 <b-row>
-                    <b-col>
+                    <b-col md="5">
                         <h3 class="td-graph-title">{{ diagram.title }}</h3>
                     </b-col>
-                    <b-col align="right">
+                    <b-col md="7" align="right">
                         <td-graph-buttons :graph="graph" @saved="saved" @closed="closed" @LLMSessionCreated="LLMSessionCreated" />
                     </b-col>
                 </b-row>
                 <b-row>
-                    <b-col style="display: flex;    width: 100vw; ">
+                    <b-col style="display: flex; width: 100vw;">
                         <div
                             id="graph-container"
                             ref="graph_container"
-                            style="height: 65vh; width: 100%; flex: 1; "
+                            style="height: 65vh; width: 100%; flex: 1;"
                         ></div>
                     </b-col>
                 </b-row>

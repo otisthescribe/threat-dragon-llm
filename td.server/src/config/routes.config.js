@@ -26,6 +26,9 @@ const unauthRoutes = (router) => {
     router.get('/api/logout', auth.logout);
     router.get('/api/oauth/return', auth.oauthReturn);
     router.get('/api/oauth/:provider', auth.completeLogin);
+
+    // LLM routes
+    router.post('/api/threatmodel/generate/threats', llmService.generateThreats);
 };
 
 /**
@@ -56,9 +59,6 @@ const routes = (router) => {
     router.post('/api/googleproviderthreatmodel/:folder/create', googleProviderThreatmodelController.create);
     router.put('/api/googleproviderthreatmodel/:file/update', googleProviderThreatmodelController.update);
     router.get('/api/googleproviderthreatmodel/:file/data', googleProviderThreatmodelController.model);
-
-    // LLM routes
-    router.post('/api/threatmodel/generate/threats', llmService.generateThreats);
 };
 
 const config = (app) => {

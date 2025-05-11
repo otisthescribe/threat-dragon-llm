@@ -1,5 +1,5 @@
 {
-  "version": "2.2.0",
+  "version": "2.4.1",
   "summary": {
     "title": "CONFidence 2025",
     "owner": "Marta Rusek & Grzegorz Kmita",
@@ -11,7 +11,7 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "URL Shortener Service Architecture",
+        "title": "URL Shortener",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",

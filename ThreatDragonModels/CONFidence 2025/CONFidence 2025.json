@@ -3,7 +3,7 @@
   "summary": {
     "title": "CONFidence 2025",
     "owner": "Marta Rusek & Grzegorz Kmita",
-    "description": "",
+    "description": "The URL Shortener is an easy-to-use application that helps you take long, complicated web addresses and turn them into short, simple links. This makes sharing your links much easier and cleaner.",
     "id": 0
   },
   "detail": {
@@ -643,6 +643,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 0
+    "threatTop": 84
   }
 }

@@ -26,12 +26,13 @@
               "width": 690,
               "height": 370
             },
-            "shape": "trust-boundary-box",
             "attrs": {
               "headerText": {
                 "text": "URL Shortener Service"
               }
             },
+            "visible": true,
+            "shape": "trust-boundary-box",
             "zIndex": -1,
             "id": "b830597f-432f-4c75-a688-8722ce7f1585",
             "data": {
@@ -64,6 +65,88 @@
             "visible": true,
             "shape": "actor",
             "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "7872d651-260d-450c-90b3-1c04ff98145d"
+                },
+                {
+                  "group": "right",
+                  "id": "949b5318-8b23-45e7-8dc6-c1fd2cdc4c0a"
+                },
+                {
+                  "group": "bottom",
+                  "id": "7e6a34ed-ce1b-4715-96d7-f040e7414807"
+                },
+                {
+                  "group": "left",
+                  "id": "40c8c518-3cd1-411f-9ea6-4b34f80eaee1"
+                }
+              ]
+            },
             "id": "3ebe0ef2-2820-4e4d-8eb4-184714e6cf67",
             "data": {
               "type": "tm.Actor",
@@ -98,6 +181,88 @@
             "visible": true,
             "shape": "process",
             "zIndex": 4,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "430fcd4c-488c-4b30-8d85-d437cbe3e119"
+                },
+                {
+                  "group": "right",
+                  "id": "f5aee442-186a-4052-b117-d5ddff231045"
+                },
+                {
+                  "group": "bottom",
+                  "id": "56e8225e-4e89-4774-a56e-ed1f5b3ce531"
+                },
+                {
+                  "group": "left",
+                  "id": "aeab18db-17a4-4d41-8541-0d62d6ba8ea4"
+                }
+              ]
+            },
             "id": "602a3f85-c6bc-48db-9230-9cb402fdc6f0",
             "data": {
               "type": "tm.Process",
@@ -135,6 +300,88 @@
             "visible": true,
             "shape": "process",
             "zIndex": 5,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "5f601a50-bc6e-4fb1-969e-3ad62ecb14c1"
+                },
+                {
+                  "group": "right",
+                  "id": "ee4bbe78-2da9-416c-be93-ddab61db453f"
+                },
+                {
+                  "group": "bottom",
+                  "id": "93ac2a14-e76d-4ef1-bfce-fec359d92078"
+                },
+                {
+                  "group": "left",
+                  "id": "88686272-958d-412c-a81d-c13cf3317355"
+                }
+              ]
+            },
             "id": "1f9260a0-bd64-49d7-a839-58e5e43948dc",
             "data": {
               "type": "tm.Process",
@@ -175,6 +422,88 @@
             "visible": true,
             "shape": "store",
             "zIndex": 6,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "1b9b51fd-f84a-4daf-92a5-5cc80f269b99"
+                },
+                {
+                  "group": "right",
+                  "id": "c3d8e8da-f8cf-447e-ba8b-c987cfe52753"
+                },
+                {
+                  "group": "bottom",
+                  "id": "901d02d2-f13b-4498-9dba-eb479df09952"
+                },
+                {
+                  "group": "left",
+                  "id": "4d2b1b3a-da21-4ac5-91d1-cb66a71c6388"
+                }
+              ]
+            },
             "id": "afe966da-e79b-4415-8c3b-c8b7f3bfdb1c",
             "data": {
               "type": "tm.Store",
@@ -213,6 +542,88 @@
             "visible": true,
             "shape": "actor",
             "zIndex": 7,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "aff4fc79-af46-4ffd-bfdb-3f164c15b1e2"
+                },
+                {
+                  "group": "right",
+                  "id": "3928cc26-213f-4df6-b4ed-e5030e0ec461"
+                },
+                {
+                  "group": "bottom",
+                  "id": "b2790373-5b23-4cd0-9337-20c7c58c365b"
+                },
+                {
+                  "group": "left",
+                  "id": "5a454d80-be9d-4baf-a887-bfcaa0bbd05c"
+                }
+              ]
+            },
             "id": "2c0500fb-85fa-4497-908a-61b1ea2e09f4",
             "data": {
               "type": "tm.Actor",
@@ -247,6 +658,88 @@
             "visible": true,
             "shape": "process",
             "zIndex": 8,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "e36c11ae-2451-4041-8f67-7afbddf204e7"
+                },
+                {
+                  "group": "right",
+                  "id": "3c03d467-0d2c-4c80-bac2-fabdc2f59502"
+                },
+                {
+                  "group": "bottom",
+                  "id": "c71a4768-55bc-4aac-a065-176fc78a3c86"
+                },
+                {
+                  "group": "left",
+                  "id": "cb7e4254-24e0-4758-8669-c5a46f62b998"
+                }
+              ]
+            },
             "id": "23c4d6cc-6e67-47cd-855d-610b8e390d5f",
             "data": {
               "type": "tm.Process",
@@ -287,6 +780,88 @@
             "visible": true,
             "shape": "store",
             "zIndex": 9,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "0bf3a0b5-7dab-4e52-864d-3710bc83f04c"
+                },
+                {
+                  "group": "right",
+                  "id": "11864ede-ffc6-47e7-822d-738ced98f09a"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ddca92ef-60fb-4e3b-87ad-8c676a7b8c1c"
+                },
+                {
+                  "group": "left",
+                  "id": "274e1ccc-cb51-44f9-a2c4-50b6c00cc368"
+                }
+              ]
+            },
             "id": "dd3ca2fb-9929-4ad2-bd6d-ec06b824924a",
             "data": {
               "type": "tm.Store",
@@ -323,31 +898,32 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Store URL Mapping",
-              "description": "The API Server processes the request for shortening a URL, generates a short URL, and stores the mapping between the short URL and the long URL in the URL Database.\n\nDATA EXCHANGED: Short URL, Long URL",
+              "name": "Redirect User to URL",
+              "description": "The user is redirected to the Long URL.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTP",
               "threats": []
             },
-            "id": "0bcd6bca-360b-4f4e-a505-187195135022",
             "labels": [
-              "Store URL Mapping"
+              "Redirect User to URL"
             ],
+            "id": "07f08d6d-e984-4d14-9d25-36ad24b230bd",
             "source": {
-              "cell": "1f9260a0-bd64-49d7-a839-58e5e43948dc"
+              "cell": "602a3f85-c6bc-48db-9230-9cb402fdc6f0"
             },
             "target": {
-              "cell": "afe966da-e79b-4415-8c3b-c8b7f3bfdb1c"
+              "x": 950,
+              "y": 470
             },
             "vertices": [
               {
-                "x": 960,
-                "y": 150
+                "x": 930,
+                "y": 420
               }
             ]
           },
@@ -371,31 +947,35 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Shorten Request",
-              "description": "The user submits a long URL to the API for shortening.\n\nDATA EXCHANGED: Short URL, Long URL, UserID",
+              "name": "User Request",
+              "description": "The User sends a request to the API Server to shorten a long URL or to get the redirect URL.\n\nDATA EXCHANGED: Long URL, Short URL, API key",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": true,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTP",
               "threats": []
             },
-            "id": "e8d0a24f-858a-45bd-b447-06e07897128a",
             "labels": [
-              "Shorten Request"
+              "User Request"
             ],
+            "id": "d6f0c600-c203-43af-80a3-3f9efb740b3e",
             "source": {
-              "cell": "23c4d6cc-6e67-47cd-855d-610b8e390d5f"
+              "cell": "3ebe0ef2-2820-4e4d-8eb4-184714e6cf67"
             },
             "target": {
-              "cell": "1f9260a0-bd64-49d7-a839-58e5e43948dc"
+              "cell": "23c4d6cc-6e67-47cd-855d-610b8e390d5f"
             },
             "vertices": [
               {
-                "x": 710,
-                "y": 240
+                "x": 275,
+                "y": 310
+              },
+              {
+                "x": 370,
+                "y": 310
               }
             ]
           },
@@ -425,15 +1005,15 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": true,
-              "isEncrypted": false,
+              "isEncrypted": true,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "HTTP",
               "threats": []
             },
-            "id": "c01e0e5d-2f52-4b05-a659-58b854fb8b54",
             "labels": [
               "Redirect Request"
             ],
+            "id": "c01e0e5d-2f52-4b05-a659-58b854fb8b54",
             "source": {
               "cell": "23c4d6cc-6e67-47cd-855d-610b8e390d5f"
             },
@@ -467,126 +1047,31 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Redirect User to URL",
-              "description": "The user is redirected to the Long URL.",
+              "name": "Store URL Mapping",
+              "description": "The API Server processes the request for shortening a URL, generates a short URL, and stores the mapping between the short URL and the long URL in the URL Database.\n\nDATA EXCHANGED: Short URL, Long URL",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
+              "isEncrypted": true,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "HTTP",
               "threats": []
             },
-            "id": "07f08d6d-e984-4d14-9d25-36ad24b230bd",
             "labels": [
-              "Redirect User to URL"
+              "Store URL Mapping"
             ],
+            "id": "0bcd6bca-360b-4f4e-a505-187195135022",
             "source": {
-              "cell": "602a3f85-c6bc-48db-9230-9cb402fdc6f0"
+              "cell": "1f9260a0-bd64-49d7-a839-58e5e43948dc"
             },
             "target": {
-              "x": 950,
-              "y": 470
+              "cell": "afe966da-e79b-4415-8c3b-c8b7f3bfdb1c"
             },
             "vertices": [
               {
-                "x": 930,
-                "y": 420
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Fetch API credentials",
-              "description": "Hashed API keys are pulled to authenticate the user before performing any operation.\n\nDATA EXCHANGED: Hashed API key",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "64b5c059-2c27-49ef-84e8-7e8ee050931f",
-            "labels": [
-              "Fetch API credentials"
-            ],
-            "source": {
-              "cell": "23c4d6cc-6e67-47cd-855d-610b8e390d5f"
-            },
-            "target": {
-              "cell": "dd3ca2fb-9929-4ad2-bd6d-ec06b824924a"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": "block"
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "User Request",
-              "description": "The User sends a request to the API Server to shorten a long URL or to get the redirect URL.\n\nDATA EXCHANGED: Long URL, Short URL, API key",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": true,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "d6f0c600-c203-43af-80a3-3f9efb740b3e",
-            "labels": [
-              "User Request"
-            ],
-            "source": {
-              "cell": "3ebe0ef2-2820-4e4d-8eb4-184714e6cf67"
-            },
-            "target": {
-              "cell": "23c4d6cc-6e67-47cd-855d-610b8e390d5f"
-            },
-            "vertices": [
-              {
-                "x": 275,
-                "y": 310
-              },
-              {
-                "x": 370,
-                "y": 310
+                "x": 960,
+                "y": 150
               }
             ]
           },
@@ -616,15 +1101,15 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "isBidirectional": false,
-              "isEncrypted": false,
+              "isEncrypted": true,
               "isPublicNetwork": false,
-              "protocol": "",
+              "protocol": "HTTP",
               "threats": []
             },
-            "id": "23e310de-2c36-4478-85d2-4999137f6df3",
             "labels": [
               "Retrieve Long URL"
             ],
+            "id": "23e310de-2c36-4478-85d2-4999137f6df3",
             "source": {
               "cell": "602a3f85-c6bc-48db-9230-9cb402fdc6f0"
             },
@@ -637,12 +1122,102 @@
                 "y": 320
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Shorten Request",
+              "description": "The user submits a long URL to the API for shortening.\n\nDATA EXCHANGED: Short URL, Long URL, UserID",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "HTTP",
+              "threats": []
+            },
+            "labels": [
+              "Shorten Request"
+            ],
+            "id": "e8d0a24f-858a-45bd-b447-06e07897128a",
+            "source": {
+              "cell": "23c4d6cc-6e67-47cd-855d-610b8e390d5f"
+            },
+            "target": {
+              "cell": "1f9260a0-bd64-49d7-a839-58e5e43948dc"
+            },
+            "vertices": [
+              {
+                "x": 710,
+                "y": 240
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Fetch API credentials",
+              "description": "Hashed API keys are pulled to authenticate the user before performing any operation.\n\nDATA EXCHANGED: Hashed API key",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": true,
+              "isPublicNetwork": false,
+              "protocol": "HTTP",
+              "threats": []
+            },
+            "labels": [
+              "Fetch API credentials"
+            ],
+            "id": "64b5c059-2c27-49ef-84e8-7e8ee050931f",
+            "source": {
+              "cell": "23c4d6cc-6e67-47cd-855d-610b8e390d5f"
+            },
+            "target": {
+              "cell": "dd3ca2fb-9929-4ad2-bd6d-ec06b824924a"
+            }
           }
         ]
       }
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 84
+    "threatTop": 192
   }
 }

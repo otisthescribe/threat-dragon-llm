@@ -33,7 +33,9 @@
 !package-lock.json
 
 # sample threat models
-!ThreatDragonModels
+!ThreatDragonModels/
+!ThreatDragonModels/TheHackSummit2025
+!ThreatDragonModels/TheHackSummit2025/*.json
 !ThreatDragonModels/*model.json
 !ThreatDragonModels/test/
 !ThreatDragonModels/test/*.json
